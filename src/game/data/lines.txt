@@ -1,0 +1,152 @@
+/ job descriptions
+soldierJobDesc You were once a soldier.@Because of this, you have training in automatic firearms,@and possess some basic armor.@Unfortunately, you werent allowed to keep any of your real gear@from your fighting days.@All you have left is some basic shellguns.
+traderJobDesc You were a shopkeeper.@Because of this, you know something about haggling,@and possess weapons for self-defense and valuables you saved up.
+laborJobDesc You were a common laborer.@You possess a set of strength-enhancing modifications,@but have no weapons or useful skills.
+beggarJobDesc You were a lowly beggar.@You possess a little bit of pocket change and two stolen knives,@and have experience in dodging kicks.
+mechCrafterJobDesc You were an apprentice of mechcraft.@You possess a pair of self-made mechcraft limbs,@and some basic tools.
+fleshCrafterJobDesc You were an apprentice of fleshcraft.@You possess a pair of self-made fleshcraft limbs,@your glasses, and a pair of knives from the workshop.
+/ crime descriptions
+smugglerCrimeDesc You were caught at the border with a load of illegal drugs.@You have some on you, to trade with the people of the Waste.
+politicalCrimeDesc You were caught at an anti-government rally.@You have a few things that were passed out to the crowd.
+religiousCrimeDesc You were reported as following an unauthorized religion.@You have a few things your religion reccomends you to carry.
+thiefCrimeDesc You fled to the Waste to avoid capture.@You have some money from your most recent robbery.
+voluntaryCrimeDesc You chose to come, hoping to find great riches.@You have some basic supplies you prepared for the journey.
+murdererCrimeDesc You are laying low after a murder.@You have what remains of the victim.
+terroristCrimeDesc You were waiting for the time to come for your attack.@You have the bombs you planned on using.
+looterCrimeDesc You had left to loot the place.@You have the few things you have already looted.
+homosexualCrimeDesc You were caught 'in the act'.@You have whats left of a nice outfit.
+/ weapon descriptions
+rocketLauncherDesc A powerful rocket launcher.@Strongheart Industries owns exclusive rights@to manufacturing rocket launchers, and thus all@domestically available rocket launchers are of their design.
+disruptorDesc An experimental energy weapon.@Fires repeatead energy pulses which disintigrate the target.
+knifeDesc A simple metal knife, perhaps from a kitchen.
+combatKnifeDesc A more deadly knife.@Used as a weapon of last resort by the army.
+swordDesc A simple metallic sword.@Slower than a knife, but more powerful.
+toothSwordDesc A sword with a serrated blade.
+ripperDesc A special sword made with an extra-sharp blade.
+chainSwordDesc A mechanized sword covered in spinning blades.@Unwieldly, but powerful.
+wrenchDesc A common tool used by practitioners of mechcraft.@Heavy enough to use as a weapon.
+batonDesc A police baton, used to pacify rioters.
+maceDesc A simple metal mace.@Surprisingly useful for breaking armored limbs.
+hammerDesc A heavy one-handed hammer meant for cracking armor.
+warhammerDesc A large, powerful two-handed hammer.
+autohammerDesc A sledgehammer with a built-in pneumatic piston.@Designed for construction work, so its unwieldly in combat.
+shellgunDesc A cheap manual design, meant for mass-production.@Common civilian self-defense weapon.
+stingerDesc A higher-end civilian market manual.@Infamous as a concealed weapon.
+sixshotDesc An old-pattern manual with solid construction.@Popular among gun enthusiasts.
+hotshotDesc An expensive, trendy manual.@Marketed towards mercenaries and rich civilians.
+longshotDesc A new military manual with a long barrel and increased range.@Meant as a self-defense weapon for support troops.
+superDesc A manual design reknown for its high stopping power.@Supposed to be used for exterminating rogue creations,@but often ends up as a trophy weapon for the rich.
+juicerDesc An obsolete automatic design.@Formerly standard issue by the army,@now mostly associated with criminals and gang members.
+falconDesc Standard-issue police automatic with a compact design.@Often finds its way into the civilian market.@Trades range for ammo efficiency.
+scorpionDesc A modern modification of the old juicer design.@Used mostly by the army reserve.
+grizzlyDesc A modern automatic designed for the military.@However, it was not picked up, and is now mostly sold to mercenaries.@Known to be very rugged.
+camelDesc The first of an entirely new pattern of automatics.@Picked up by the military for its ammo efficiency.
+polarDesc An accuratized grizzly, meant for marksmen.@Has gained popularity in foreign militaries,@in addition to its use by rich mercs.
+zeusDesc The first civilian market beam gun design.@The fancy name belies its cheap nature.
+lancetDesc An old army beam gun design.@It was manufactured in excessive qualities,@so old army surplus lancets are commonly in the black market.
+sterilizerDesc A more modern beam gun design.@Despite its name it leaves messy wounds.
+suppressorDesc The current military-issue beam gun.@Made for ruggedness and reliability.
+assassinDesc A specialized beam gun with a reinforced barrel.@Fires in two-shot bursts, for optimal killing power.@However, ammo efficiency is poor.
+/ armor descriptions
+bootDesc A natural leg and simple boot.@Provides very little protection.
+gloveDesc A natural arm and simple glove.@Provides very little protection.
+clothesDesc An ordinary set of clothes.@Provides very little protection.
+niceClothesDesc A fashionable set of clothes.@Provides very little protection.
+niceHatDesc A fashionable hat.@Provides very little protection.
+ragsDesc A pauper's rags.@Provides very little protection.
+crudeDesc The most basic type of mech limb possible.@Uncomfortable and poorly armored.@Only notable for its flexibility.
+shieldDesc A refinement of crude limbs, with extra armor and stronger motors.
+casedDesc The standard for mech limbs.@A design renown for comfort and ruggedness.@Often found on the civilian market as high-end prosthetics.
+alloyDesc Mech limb made of a carbon-heavy metal alloy.@Has increased toughness and slightly decreased weight.
+assistDesc Mech limb made for enhanced strength.@Unfortunately, it has to sacrifice some toughness in the process.
+slopedDesc Mech limb with slanted armor.@Meant for more effectively deflecting blows.
+mastercraftDesc Conventional mech limb of the highest quality.
+synthDesc Simple limb of synthflesh.@Probably the product of an apprentice fleshcrafter.
+nerveDesc Higher-quality fleshcrafts limb.@Made with enhanced mobility and sense of touch.@Popular with acrobats and musicians.
+performanceDesc Fleshcraft limb with strengthened muscles.@Optimized for increased mobility.
+newtypeDesc Thin fleshcraft limb with extra-dense muscles.@Unpopular with civilians due to its unnatural look.
+denseDesc Fleshcraft limb made with extra-dense flesh and bone.@Based off the newtype design, but thicker and more natural-looking.
+reflexDesc Fleshcraft limb with fast-reaction muscles.@Improved neural connections increases reaction speed.
+fortifiedDesc Synthflesh limb bonded with metal plates.@Very durable for a fleshcraft product, but notoriously hard to clean.
+leatherBodyDesc Simple light armor made of synthleather.@Very mobile.
+leatherHeadDesc A synthleader headband.@Protects the crown of the forehead, but not much else.
+meshBodyDesc Fine-woven metal mesh armor backed with synthleather.@Light and effective.
+meshHeadDesc A tight metal mesh skullcap.@Softens blows to the head.
+ashBodyDesc Leather armor made of cured and scorched synthleather.
+ashHeadDesc A headband made of cured and scorched synthleather.
+vectorBodyDesc An unusual armor design which only protects the front of the body.@Not for cowards.
+vectorHeadDesc A headband reinforced with a metal plate.@Protects the crown of the head, but nothing else.
+velocityBodyDesc A set of leather armor with an unusual formulation.@Increases blood flow to the leg joints.
+velocityHeadDesc A headband designed to alter the chemical balance of the body.@Increases running speed as well as it protects the head.
+flakBodyDesc Reinforced fabric/armor hybrid.@Popular armor for beginners.@Has a good balance between protection and flexibility.
+flakHeadDesc A simple metal helmet meant to go with flak armor.
+plateBodyDesc Armor made out of metal plates.@Primitive but effective.
+plateHeadDesc A heavy metal helmet of ancient design.
+alloyBodyDesc Advanced plate armor made of a carbon-heavy metal alloy.@Lighter and stronger than normal plate.
+alloyHeadDesc An advanced helmet made of a carbon-heavy metal alloy.
+compositeBodyDesc A more modern design of armor.@Multi-segmented for added mobility.
+compositeHeadDesc An advanced helmet design meant to go with@composite armor.
+blueBodyDesc A set of carbon-infused composite plate armor.
+blueHeadDesc An advanced carbon-infused metal helmet.
+/ augment descriptions
+targetEyeDesc A powerful bionic eye with motion tracking capabilities.@Aids in predicting the movements of an enemy.
+heatEyeDesc An unusual bionic eye which can detect enemies through walls.@Makes seeing normally a bit harder though.
+tacticalEyeDesc An advanced bionic eye which detects weapons.@Inbuilt systems attempt to predict likely enemy attack arcs.
+glassesDesc A pair of corrective glasses.
+fCGlassesDesc A pair of corrective glasses with variable magnification.@Used by fleshcrafters to help monitor the growth of creations.
+sonarGlassesDesc A pair of corrective glasses with a built-in HUD.@Shows output from a small sonar system strapped to the body.
+heatGlassesDesc A pair of corrective glasses with built-in heat sensors.
+flexiHipDesc An artificial hip replacement with increased joint mobility.@Popular among old-timers and acrobats alike.
+stabilityHipDesc An artificial hip replacement made for increased stability.@Makes aiming easier, though at the cost of mobility.
+sprinterHipDesc An artificial hip replacement with built-in motors.@Meant to work with replacement limbs in increasing running speed.
+titanShoulderDesc A shoulder muscle replacement with extra-strength motors.@Increases physical strength.
+juggernautShoulderDesc A shoulder muscle replacement with extra armor and advanced shock absorbers.@Helps protect the body from hard blows.
+achillesShoulderDesc A shoulder muscle replacement with extra internal reinforcement.@Allows the arms to block blows at bad angles without being dismembered.
+/ healing descriptions
+medicalKitDesc A vial of fast-action healing enzymes and an applicator.@Rapidly heals flesh and mends leather.
+exMedicalKitDesc A syringe full of experimental healing agent and a rapid coagulation spray.@Powerful, but might have long-term effects.
+repairKitDesc A one-time-use auto repair tool and@a tube of industrial bonding agent.@Rapidly repairs metal armor and mech creations.
+/ trap descriptions
+teethTrapDesc A simple but effective trap consisting of a spring and metal teeth.@Dangerous to the legs of anyone who steps on it.
+militaryBombTrapDesc An explosive proximity mine.@Used by the military to make defensive minefields.
+criminalBombTrapDesc An explosive proximity mine.@Designed by the Syndicate to be lightweight, at the cost of power.
+/ material descriptions
+mechPartDesc A handful of electronics.@Can be used to assemble motors and lay wiring.@Used in mechcrafting.
+growthSolutionDesc A solution used to promote the growth of synthflesh.@Contains nutrients and growth hormones.@Used in fleshcrafting.
+clothScrapDesc A piece of cloth.@Used in armorcrafting.
+leatherScrapDesc A piece of leather.@Used in armorcrafting.
+metalScrapDesc A piece of metal.@Used in mechcrafting and armorcrafting.
+fleshScrapDesc A piece of synthflesh.@Used in fleshcrafting.
+/ ammunition descriptions
+bulletDesc A bullet, meant for use in rapid-firing automatic firearms.
+largeBulletDesc A large bullet, meant for use in powerful manual firearms.
+batteryDesc A standardized battery used by beam weapons.
+rocketDesc A rocket made by Strongheart Industries.
+dCellDesc A specialized energy cell made for the unique Disruptor weapon.
+/ food and drink descriptions
+caveSandwichDesc Sliced sythmeat and cave fruit between two halves of bread.@Very filling, and decently tasty.
+caveSaladDesc A light salad made from cave fruit and mushroom,@flavored with cave flower nectar.
+caveFruitDesc A bitter fruit found underground.@Best as a dietary supplement, rather than a diet.
+caveFruitNectar The bitter nectar of a cave flower.@Is drinkable in an emergency, if filtered water is not available.
+mushroomDesc A large mushroom.@After an old campaign of bioengineer and terraforming, all of the@species of poisonous mushrooms in the Waste were wiped out.@So this is probably safe to eat.
+breadDesc A simple loaf of bread.
+oldBreadDesc A stale, partially-eaten loaf of bread.
+synthMeatDesc A piece of artificially grown meat.@Unappetizing but filling.
+rationsDesc A standard-issue tin of military rations.
+waterBottleDesc A bottle of potable water.@Most of the water in the Waste is contaminated,@so bottled water is the only source.
+sodaDesc A bottle of soda.@Like bottled water, bottled sodas are safe.
+/ junk descriptions
+coinDesc A corroded metal coin.@An old currency that is still technically accepted,@even outside the Waste.
+gemDesc An attractive shiny rock.@Often valued as a decoration.
+holyDesc The holy symbol of an unauthorized religion.
+bookDesc A paperback book.@Not particularly valuable, except in terms of entertainment value.
+hypoDesc A one-use auto-inject hypodermic needle.@It's unlabeled, but presumably full of some illegal drug.
+painkillerDesc A powerful painkiller.@Can be useful, but watch out for addiction.
+datatapeDesc A magnetic tape used to store electronic records.@Probably full of some business's accounting records.
+brickDesc A brick.@Heavy and worthless, unless you are building a wall.
+rockDesc A large rock.@Has no value, even as a bludgeon.
+gristleDesc A byproduct of the synthflesh growing process.@Only useful broken down for nutrients to grow more synthflesh.
+driedBloodDesc A thick gel-like sample of partially dried blood.@This blood once supplied nutrients to a tank of growing synthflesh.
+/
+/
+END LINES!

@@ -1,0 +1,913 @@
+/
+/ START DATA
+/
+TILE:
+/ name sprite color solid opaque blocksProjectile lowerHalf heightLayer specialTileEffect
+/ floors should be dark, walls bright
+staircase 1 0x333333 false false false none 2 none
+hdoor 13 0x834F37 false true true hdoorSide 2 none
+vdoor 12 0x834F37 false true true none 3 none
+hwindow 10 0xFFFFFF true false true hwindowSide 2 none
+vwindow 9 0xFFFFFF true false true none 3 none
+/ sonar tiles
+sonarSolid 17 0 true true true sonarSolid 2 none
+sonarGround 17 0 false false false none 1 none
+/ furniture/accessories
+chair 11 0x4C2D20 false false false none 3 none
+table 16 0x4C2D20 false false false none 3 none
+bed 18 0x3A3766 false false false none 3 none
+bedroll 20 0x3A3766 false false false none 3 none
+cot 27 0x376637 false false false none 3 none
+lamp 19 0xAF9255 false false false none 3 none
+mechTable 21 0x7F4742 false false false none 3 tef_mech
+fleshTable 22 0x7C405B false false false none 3 tef_flesh
+armorTable 23 0x7A7A7A false false false none 3 tef_armor
+/ finalized tiles I guess
+pit 17 0 true false false none 0 none
+dirtFloor 2 0x130C09 false false false dirtFloor 1 none
+grassFloor 2 0x091408 false false false dirtFloor 1 none
+mossFloor 2 0x200908 false false false dirtFloor 1 none
+dirtWall 6 0x965F48 true true true dirtWall 2 none
+greyStoneFloor 3 0x181418 false false false greyStoneFloor 1 none
+greyStoneWall 7 0x8C758C true true true greyStoneWall 2 none
+redStoneFloor 3 0x191214 false false false redStoneFloor 1 none
+redStoneWall 7 0x7F5D66 true true true redStoneWall 2 none
+redBrickFloor 4 0x19110F false false false redStoneFloor 1 none
+redBrickWall 5 0x8C6256 true true true redBrickWall 2 none
+woodBoards 28 0x190F0A false false false woodBoards 1 none
+greyBrickFloor 4 0x181418 false false false greyStoneFloor 1 none
+greyBrickWall 5 0x8C758C true true true greyBrickWall 2 none
+shoredGreyBrickWall 5 0x8C758C true true true shoredGreyBrickWallSide 2 none
+shoredGreyStoneWall 7 0x8C758C true true true shoredGreyStoneWallSide 2 none
+rivetedWall 5 0x8C6256 true true true rivetedWallSide 2 none
+whiteTileWallPartial 5 0x8C758C true true true whiteTileWall 2 none
+whiteTileWall 29 0x8C758C true true true whiteTileWall 2 none
+redTileFloor 26 0x19110F false false false redStoneFloor 1 none
+whiteTileFloor 26 0x161616 false false false greyStoneFloor 1 none
+/ side walls
+rivetedWallSide 25 0x875F5F
+shoredGreyBrickWallSide 0 0x8C758C
+shoredGreyStoneWallSide 8 0x8C758C
+hdoorSide 14 0x834F37
+hwindowSide 15 0xFFFFFF
+/
+/
+SPECIALTILEEFFECT:
+/ name displayName
+tef_mech #Mechcraft#Bench
+tef_flesh #Fleshcraft#Station
+tef_armor #Armorcraft#Table
+/
+/
+TILELIST:
+/ name floor* wall*
+/ sub tile lists (must be 8 entries long each)
+/ try to keep common threads (IE grey stone wall in the first slot, etc)
+naturalTileList greyStoneFloor greyStoneWall grassFloor dirtWall dirtFloor dirtWall greyStoneFloor greyStoneWall
+naturalPlankList woodBoards greyStoneWall woodBoards dirtWall woodBoards dirtWall greyStoneFloor greyStoneWall
+grassyTileList grassFloor greyStoneWall grassFloor dirtWall dirtFloor dirtWall grassFloor dirtWall
+mossyTileList mossFloor greyStoneWall mossFloor dirtWall dirtFloor dirtWall mossFloor dirtWall
+mossyChasmTileList mossFloor greyStoneWall mossFloor pit mossFloor dirtWall mossFloor redStoneWall
+stoneyTileList greyStoneFloor greyStoneWall greyStoneFloor greyStoneWall dirtFloor dirtWall redStoneFloor redStoneWall
+stoneyPitTileList greyStoneFloor greyStoneWall greyStoneFloor pit dirtFloor dirtWall redStoneFloor redStoneWall
+ruinTileList greyStoneFloor greyStoneWall redBrickFloor redBrickWall greyBrickFloor shoredGreyBrickWall greyStoneFloor shoredGreyStoneWall
+buildingTileGreyList greyBrickFloor greyStoneWall greyBrickFloor greyBrickWall greyBrickFloor shoredGreyBrickWall greyBrickFloor greyBrickWall
+buildingTileGreyPitList greyBrickFloor greyStoneWall greyBrickFloor pit greyBrickFloor shoredGreyBrickWall greyBrickFloor greyBrickWall
+buildingTileRedList redBrickFloor greyStoneWall redBrickFloor redBrickWall redBrickFloor redBrickWall greyBrickFloor redBrickWall
+fortifiedList redTileFloor rivetedWall redBrickFloor redBrickWall redTileFloor rivetedWall redBrickFloor rivetedWall
+fortifiedPitList redBrickFloor rivetedWall redBrickFloor pit redTileFloor pit redBrickFloor pit
+partFortifiedList redBrickFloor redStoneWall redTileFloor redBrickWall redBrickFloor rivetedWall greyBrickFloor rivetedWall
+houseList greyBrickFloor greyStoneWall woodBoards greyBrickWall woodBoards shoredGreyBrickWall woodBoards shoredGreyBrickWall
+minePitList woodBoards shoredGreyStoneWall woodBoards pit woodBoards pit woodBoards pit
+mineStoneList woodBoards shoredGreyStoneWall woodBoards greyStoneWall greyStoneFloor greyStoneWall greyStoneFloor shoredGreyStoneWall
+clinicalTileList redTileFloor whiteTileWallPartial whiteTileFloor whiteTileWallPartial whiteTileFloor whiteTileWall whiteTileFloor whiteTileWall
+/ metaTileLists
+testTileList naturalTileList ruinTileList grassyTileList buildingTileGreyList buildingTileRedList
+residentialTileList buildingTileGreyList buildingTileGreyList buildingTileRedList ruinTileList naturalTileList houseList houseList buildingTileGreyPitList
+caveTileList naturalTileList naturalTileList grassyTileList stoneyTileList stoneyTileList stoneyPitTileList
+baseTileList buildingTileGreyList buildingTileRedList fortifiedList fortifiedList fortifiedPitList partFortifiedList
+mineTileList stoneyTileList minePitList minePitList mineStoneList mineStoneList
+fleshWorksTileList grassyTileList mossyTileList mossyChasmTileList clinicalTileList buildingTileRedList
+waterWorksTileList grassyTileList naturalTileList minePitList minePitList minePitList minePitList mineStoneList naturalPlankList
+/ furniture lists
+testFurnitureList chair table bed lamp mechTable fleshTable
+residentialFurnitureList chair table bed lamp fleshTable
+robberCaveFurnitureList chair lamp bedroll mechTable fleshTable armorTable
+baseFurniture chair lamp mechTable fleshTable armorTable cot
+fleshWorksFurnitureList chair table lamp fleshTable fleshTable
+/
+LIMBTYPE:
+/ name genderAdd holdWeapons affectsDodge blocks vital movePenalty decorative health
+head false false true false true 0 false 15
+body true false true false true 10 false 30
+arm false true false true false 0 false 0
+leg false false true false false 50 false 0
+decoration false false false false false 0 true 0
+/
+/
+/
+/
+STACKABLECATEGORY:
+/ name
+mechHealItem
+orgHealItem
+ammunition
+food
+drink
+trap
+valuable
+material
+junk
+/
+/
+STACKABLE:
+/ name strength category description weight displayName value
+/ healing items
+medicalKit 30 orgHealItem @medicalKitDesc 40 #Medical#Kit 70
+exMedicalKit 70 orgHealItem @exMedicalKitDesc 45 #Experimental#Medical#Kit 200
+repairKit 45 mechHealItem @repairKitDesc 50 #Repair#Kit 60
+/ materials
+leatherScrap 0 material @leatherScrapDesc 8 #Leather#Scrap 15
+fleshScrap 0 material @fleshScrapDesc 8 #Flesh#Scrap 20
+metalScrap 0 material @metalScrapDesc 12 #Metal#Scrap 20
+clothScrap 0 material @clothScrapDesc 3 #Cloth#Scrap 15
+mechPart 0 material @mechPartDesc 25 #Mech#Part 100
+growthSolution 0 material @growthSolutionDesc 20 #Growth#Solution 100
+/ ammunition
+smallbullet 0 ammunition @bulletDesc 2 #Automatic#Bullet 10
+largebullet 0 ammunition @largeBulletDesc 3 #Manual#Bullet 30
+battery 0 ammunition @batteryDesc 7 #Battery 50
+rocket 0 ammunition @rocketDesc 20 #Rocket 100
+disruptorCell 0 ammunition @dCellDesc 6 #Disruptor#Cell 70
+/ traps
+teethTrap teethTrapLayed trap @teethTrapDesc 30 #Tooth#Trap 150
+militaryBombTrap militaryBombTrapLayed trap @militaryBombTrapDesc 35 #Military#Explosive#Pack 250
+criminalBombTrap criminalBombTrapLayed trap @criminalBombTrapDesc 30 #Syndicate#Explosive#Pack 200
+/ food and drink
+caveSandwich 1000 food @caveSandwichDesc 25 #Cave#Sandwich 75
+caveSalad 400 food @caveSaladDesc 12 #Cave#Salad 60
+caveFruit 200 food @caveFruitDesc 8 #Cave#Fruit 20
+caveFruitNectar 120 drink @caveFruitNectar 9 #Cave#Flower#Nectar 20
+mushroom 100 food @mushroomDesc 5 #Mushroom 20
+bread 400 food @breadDesc 15 #Loaf#of#Bread 25
+oldBread 250 food @oldBreadDesc 15 #Old#Loaf#of#Bread 18
+rations 500 food @rationsDesc 12 #Tin#of#Rations 30
+synthMeat 600 food @synthMeatDesc 20 #Synth-Meat 30
+waterBottle 300 drink @waterBottleDesc 10 #Water#Bottle 30
+soda 290 drink @sodaDesc 10 #Soda 40
+/ valuables
+coin 0 valuable @coinDesc 0 #Coin 8
+gem 0 valuable @gemDesc 0 #Gemstone 100
+hypo 0 valuable @hypoDesc 3 #Drug#Hypo 50
+painkiller 0 valuable @painkillerDesc 4 #Painkiller 40
+/ junk
+holySymbol 0 junk @holyDesc 5 #Holy#Symbol 30
+book 0 junk @bookDesc 8 #Book 10
+datatape 0 junk @datatapeDesc 4 #Datatape 8
+brick 0 junk @brickDesc 40 #Brick 3
+rock 0 junk @rockDesc 80 #Rock 3
+gristle 0 junk @gristleDesc 45 #Gristle 4
+driedBlood 0 junk @driedBloodDesc 5 #Dried#Blood 3
+/
+/
+SKILL:
+/ name baseCost costIncrease iconNumber expCost ammoType ammoAmount accuracyBonus damageBonusFromSkill displayName
+/ EVERY TIME YOU CHANGE THIS, MODIFY THE SKILL CONSTANTS IN CREATURE!
+/ expCost is how much a single point costs (1000 per difficulty base)
+/ --defense
+s_dodge 200 720 0 100 none 0 0 0 #Dodge
+s_block 168 552 0 100 none 0 0 0 #Block
+/ --offense
+/ most weapons will give you 12 EXP per hand per attack round
+s_blade 200 720 0 100 none 0 0 5 #Bladed#Weapons
+s_blunt 200 720 1 100 none 0 5 0 #Blunt#Weapons
+s_manual 200 720 2 100 largebullet 5 5 0 #Manual#Firearms
+s_automatic 200 720 5 100 smallbullet 6 5 0 #Automatic#Firearms
+s_beam 200 720 3 100 battery 3 10 5 #Beam#Weapons
+s_rocket 200 720 10 100 rocket 2 40 0 #Rocket#Launchers
+s_disruptor 200 720 13 100 disruptorCell 8 20 5 #Disruptors
+s_unarmed 100 360 4 100 none 0 2 10 #Unarmed#Combat
+/ --misc
+/ makes armor repair using repair kits or w/e more efficient
+s_mending 20 0 0 1000 none 0 0 0 #Mending
+/ makes placed traps more effective
+s_traps 20 0 0 1000 none 0 0 0 #Trap-Laying
+/ makes deals better
+s_trade 450 500 0 100 none 0 0 0 #Merchantile
+/ --crafting
+/ makes cloned flesh limb replacements (lots of light, some heavy)
+s_fleshcraft 20 20 0 600 none 0 0 0 #Fleshcraft
+/ makes robotic limb replacements (lots of heavy, some light)
+s_mechcraft 20 20 0 600 none 0 0 0 #Mechcraft
+/ makes body armor and helmets
+s_armorcraft 20 30 0 600 none 0 0 0 #Armorcraft
+/ --enemy-only skills (these still need level data for leveling up monsters)
+/ specialattack determines the damage of special attacks; it is equivalent to equipment tier
+s_specialattack 100 0 0 200 none 0 0 0 #INVALID
+/ equiptier is used to calculate the tier of equipment; this isn't a REAL skill, it's a point of comparison
+/ it will nonetheless get set for everyone when calculating their equipment
+s_equiptier 100 0 0 200 none 0 0 0 #INVALID
+/
+/
+LIMBTABLE:
+/ name hits
+/ note that because of the randomize chance (20% right now), you can put stuff after body or head
+explosionTable
+basicDamageTable body head arm
+bodyOnlyTable body
+fastDamageTable head body
+basicCrippleTable arm body leg
+legOnlyTable leg leg leg leg leg leg leg body
+/
+/
+EYEMORPH:
+/ name eyex eyey eyesize
+noeye
+humaneye 19 9 2 22 9 2
+grapplereye 32 11 2
+equestrianeye 25 9 2
+geisteye 21 10 2 27 8 1 27 10 2
+gunboateye 23 16 1 25 15 1 27 16 1 25 17 1 35 8 2
+soldiereye 22 11 2
+gunboateliteeye 23 17 1 25 16 1 27 17 1 25 18 1
+garrisoneye 19 23 1 21 22 1 21 24 1 23 23 1 31 19 1 32 19 1
+/
+/
+COLORMORPH:
+/ name eyeC1 eyeC2 eyeC3 eyeC4 eyeC5 hasHair skinC1 skinC2 skinC3 skinC4 skinC5 heatColor
+/ heat color is for xray (thermal imaging)
+humancolor 0x4D4D0D 0x6E8A95 0x3D1702 0x4E2000 0xAE5012 true 0xF9E7CF 0xF7B487 0xF9F1CF 0xF7BFAF 0xF9DFD1 0xDCA632
+grapplercolor 0x660000 0x006600 0x000066 0x666600 0x006666 false 0x333333 0x443333 0x334433 0x333344 0x444444 0xF76F33
+equestriancolor 0xFFFFFF 0xDDFFFF 0xFFDDFF 0xFFFFDD 0xEEEEEE false 0xA1918A 0xB1918A 0xA1818A 0xA1917A 0xB1817A 0xF76F33
+geistcolor 0x660000 0x006600 0x000066 0x666600 0x006666 false 0xF9E7CF 0xF7B487 0xF9F1CF 0xF7BFAF 0xF9DFD1 0x0985A7
+gunboatcolor 0xFFFFFF 0xDDFFFF 0xFFDDFF 0xFFFFDD 0xEEEEEE false 0x5B3318 0x523318 0x5B3718 0x5B3323 0x543810 0xA6009A
+slithercolor 0 0 0 0 0 false 0x156755 0x15CB23 0x15993C 0x158049 0x15B230 0x0985A7
+soldiercolor 0xFFFFFF 0xDDFFFF 0xFFDDFF 0xFFFFDD 0xEEEEEE false 0xF9E7CF 0xF7B487 0xF9F1CF 0xF7BFAF 0xF9DFD1 0xF76F33
+exterminatorcolor 0 0 0 0 0 false 0x934F37 0x835F37 0x834F47 0x934F47 0x834F57 0xECA612
+wolkecolor 0 0 0 0 0 false 0x897C88 0x827C88 0x897288 0x897C82 0x827C8C 0xF76F33
+patientcolor 0x4D4D0D 0x6E8A95 0x3D1702 0x4E2000 0xAE5012 false 0xF9E9CF 0xF9B487 0xFBF1CF 0xF9BFAF 0xFBDFD1 0xECA812
+/
+/
+SPECIALEFFECT:
+/ name
+ef_grapple
+ef_poison
+/
+/
+SPECIALATTACK:
+/ name basedamage range table canDefend iconNumber requiresLimb AIuseChance specialEffect
+sp_trample 25 1 basicDamageTable true 6 leg 50 none
+sp_grapple 0 1 basicDamageTable false 8 arm 25 ef_grapple
+sp_cannon 50 8 explosionTable true 7 none 60 none
+sp_smallcannon 30 8 basicDamageTable true 7 none 100 none
+sp_pbite 15 1 basicCrippleTable true 9 none 100 ef_poison
+sp_bite 22 1 basicCrippleTable true 9 none 100 none
+sp_heavybite 30 1 basicCrippleTable true 9 none 100 none
+sp_bigpunch 30 1 basicCrippleTable true 4 arm 60 none
+sp_piston 45 1 basicDamageTable true 11 none 100 none
+sp_pspit 10 5 explosionTable false 12 none 50 ef_poison
+/
+/
+MORPH:
+/ name eyemorph colorMorph hasGender basespeed deftness sightrange specialattack corpse limbtype limbx limby baseSprite partGroup flipped
+/ defness is 0-100, and modifies hit and damage (so don't set it too low or the morph will be super-weak)
+/ it's for balancing out morphs with tons of arms
+/ partGroup is for 2h weapons; note that all arms MUST come in sets of two!
+humanmorph humaneye humancolor true 3 100 10 none humanCorpse head 15 4 0 0 false arm 2 15 3 1 true arm 23 15 3 1 false leg 19 25 4 0 false leg 14 25 4 0 false body 15 15 1 0 false
+grapplermorph grapplereye grapplercolor false 3 70 7 sp_grapple grapplerCorpse arm 23 21 3 1 false arm 25 16 3 2 false leg 13 25 4 0 false leg 20 25 4 0 false body 15 12 20 0 false arm 3 18 3 1 true arm 9 13 3 2 true head 24 7 21 0 false
+equestrianmorph equestrianeye equestriancolor true 6 90 12 sp_trample equestrianCorpse leg 7 25 4 0 false leg 12 25 4 0 false leg 18 25 4 0 false leg 23 25 4 0 false decoration 8 23 30 0 false body 14 14 25 0 false arm 6 14 3 1 true arm 27 14 3 1 false head 19 3 31 0 false
+geistmorph geisteye geistcolor false 2 80 5 none geistCorpse arm 4 15 3 1 true arm 24 16 3 1 false leg 19 25 4 0 false leg 14 25 4 0 false body 16 15 35 0 false head 18 6 37 0 false
+gunboatmorph gunboateye gunboatcolor false 4 100 8 sp_cannon gunboatCorpse leg 9 24 62 0 false leg 7 21 62 0 false leg 17 23 62 0 true leg 14 25 62 0 true body 15 13 61 0 false arm 27 17 60 1 false arm 4 15 60 1 true decoration 23 7 63 0 false
+slithermorph noeye slithercolor false 5 100 4 sp_pbite slitherCorpse decoration 6 25 66 0 false body 13 17 67 0 false head 24 17 68 0 false
+soldiermorph soldiereye soldiercolor false 2 95 10 sp_bigpunch humanCorpse leg 19 25 4 0 false leg 14 25 4 0 false body 14 15 33 0 false arm 1 15 3 1 true arm 24 15 3 1 false head 16 5 31 0 false
+exterminatormorph noeye exterminatorcolor false 3 100 7 sp_bite exterminatorCorpse body 14 31 75 0 false leg 17 36 76 0 false leg 14 36 76 0 false leg 24 35 76 0 false leg 21 35 76 0 false decoration 8 34 77 0 false head 23 28 78 0 false
+gunboatelitemorph gunboateliteeye gunboatcolor false 3 75 9 none gunboatCorpse leg 9 24 62 0 false leg 7 21 62 0 false leg 17 23 62 0 true leg 14 25 62 0 true body 15 13 69 0 false arm 19 2 59 3 true arm 19 2 none 3 true arm 9 0 59 1 true arm 9 0 none 1 true arm 19 5 59 6 true arm 19 5 none 6 true arm 9 3 59 4 true arm 9 3 none 4 true
+roamermorph noeye exterminatorcolor false 10 100 15 sp_heavybite exterminatorCorpse leg 25 23 79 0 false body 13 25 83 0 false head 26 25 74 0 false leg 8 24 84 0 false leg 20 24 79 0 false
+wolkemorph noeye wolkecolor false 1 100 8 sp_piston wolkeCorpse leg 8 25 23 0 false leg 15 25 23 0 false body 10 12 39 0 false leg 11 26 23 0 false leg 18 26 23 0 false head 25 12 24 0 false decoration 0 10 54 0 false
+patientmorph noeye patientcolor true 3 95 8 sp_pspit humanCorpse head 15 4 0 0 false arm 2 15 3 1 true arm 23 15 3 1 false leg 19 25 4 0 false leg 14 25 4 0 false body 15 15 1 0 false
+fanaticmorph humaneye patientcolor true 4 100 8 sp_bigpunch humanCorpse head 15 4 0 0 false arm 2 15 3 1 true arm 23 15 3 1 false leg 19 25 4 0 false leg 14 25 4 0 false body 15 15 1 0 false
+garrisonmorph garrisoneye gunboatcolor false 0 100 8 sp_smallcannon gunboatCorpse decoration 19 18 115 0 false decoration 15 25 116 0 false body 15 20 117 0 false
+/
+/
+ARMOR:
+/ name durability dodgeMod speedBonus strengthBonus type sprite color natural organic dropsWhenDestroyed description weight displayName value
+/ a dodgemod of 10 is +0, 0 is -10, 30 is +10, etc
+/ the dodgemod for the arm is the block chance instead, so for the most part it should be +0 or higher
+/ unless that arm is supposed to be bad at blocking, then you could go for something lower than +0
+/
+/ special case!
+/ no armor; mostly used for the head (and body, if you get naked I guess)
+noheadarmor 0 10 0 0 head none 0 true true none @none 0 #INVALID 0
+nobodyarmor 0 10 0 0 body none 0 true true none @none 0 #INVALID 0
+/test armor
+/ these exist solely to show off their appearances @none
+/ ignore their stats, consult the t0 chart instead @none
+mask 20 10 0 0 head 10 0x999999 true false metalScrap @none 10 #INVALID 0
+/
+/sample armor categories at tier 0
+/values like strengthBonus, speedBonus, and dodgeMod shouldn't change much as tiers go by
+/note that light arms having higher health than heavy arms is intentional; otherwise heavy arms would be worthless
+/also use this for color cues (body/head armor is dark, etc)
+t0lightleg 35 15 20 0 leg 14 0x777777 false true fleshScrap @none 40 #INVALID 150
+t0heavyleg 70 7 0 5 leg 14 0x777777 false false metalScrap @none 60 #INVALID 150
+t0lightarm 60 20 20 0 arm 13 0x777777 false true fleshScrap @none 40 #INVALID 150
+t0heavyarm 35 40 0 10 arm 13 0x777777 false false metalScrap @none 60 #INVALID 150
+t0lightarmor 50 20 20 0 body 11 0x322011 true true leatherScrap @none 40 #INVALID 200
+t0heavyarmor 100 0 0 5 body 6 0x322011 true false metalScrap @none 60 #INVALID 200
+t0lighthelmet 25 10 0 0 head 5 0x666666 true true leatherScrap @none 20 #INVALID 100
+t0heavyhelmet 40 6 0 0 head 5 0x666666 true false metalScrap @none 30 #INVALID 100
+/sample monster gear at tier 0
+/these are actually used in-game, auto-scaled to the appropriate tier via auto tier bonuses
+t0grapplerleg 45 10 0 0 leg 14 0x777777 false false metalScrap @none 0 #INVALID 0
+t0grapplerarm 25 35 0 5 arm 13 0x777777 false false metalScrap @none 0 #INVALID 0
+t0grapplerhide 40 10 0 0 body none 0 true true leatherScrap @none 0 #INVALID 0
+t0grapplerhelm 35 5 0 0 head 22 0xAAAAAA true false metalScrap @none 0 #INVALID 0
+t0equestrianleg 35 15 25 0 leg 9 0x666666 true true none @none 0 #INVALID 0
+t0equestrianarm 50 20 0 0 arm 8 0x666666 true true none @none 0 #INVALID 0
+t0equestrianarmor 90 15 0 0 body 27 0x444444 true false metalScrap @none 0 #INVALID 0
+t0equestrianhelm 30 10 0 0 head 32 0x444444 true false clothScrap @none 0 #INVALID 0
+t0geistarmor 150 0 0 30 body 36 0xAAAABB true true metalScrap @none 0 #INVALID 0
+t0geisthelm 10 0 0 0 head 38 0xAAAABB true true none @none 0 #INVALID 0
+t0gunboatarmor 100 10 0 0 body 64 0x888899 true false metalScrap @none 0 #INVALID 0
+t0gunboatelitearmor 150 10 0 0 body 64 0x8888AA true false metalScrap @none 0 #INVALID 0
+t0gunboatleg 30 10 0 0 leg none 0 true false metalScrap @none 0 #INVALID 0
+t0gunboatarm 30 0 0 0 arm 65 0x888899 true false metalScrap @none 0 #INVALID 0
+t0gunboatelitearm 18 0 0 0 arm none 0 true false metalScrap @none 0 #INVALID 0
+t0slitherhide 70 25 0 0 body none 0 true true fleshScrap @none 0 #INVALID 0
+t0slitherhead 30 15 0 0 head none 0 true true fleshScrap @none 0 #INVALID 0
+t0soldierarmor 110 0 0 15 body 34 0x566656 true false metalScrap @none 0 #INVALID 0
+t0soldierhelmet 50 6 0 0 head 29 0x566656 true false metalScrap @none 0 #INVALID 0
+t0exterminatorleg 20 10 0 0 leg none 0 true true none @none 0 #INVALID 0
+t0exterminatorhide 50 25 0 0 body none 0 true true fleshScrap @none 0 #INVALID 0
+t0exterminatorhead 25 10 0 0 head none 0 true true fleshScrap @none 0 #INVALID 0
+t0syndicatearmor 120 15 100 120 body 81 0x252520 true false clothScrap @none 0 #INVALID 0
+t0syndicatehelmet 50 10 0 0 head 80 0x252520 true false leatherScrap @none 0 #INVALID 0
+t0roamerleg 50 15 300 0 leg none 0 true true leatherScrap @none 0 #INVALID 0
+t0roamerbody 80 20 0 0 body none 0 true true fleshScrap @none 0 #INVALID 0
+t0roamerhead 60 10 0 0 head none 0 true true fleshScrap @none 0 #INVALID 0
+t0wolkeleg 40 10 0 0 leg none 0 true true leatherScrap @none 0 #INVALID 0
+t0wolkebody 150 10 0 0 body none 0 true true fleshScrap @none 0 #INVALID 0
+t0wolkehead 50 10 0 0 head 53 0x696969 true true fleshScrap @none 0 #INVALID 0
+t0patientarmor 70 10 0 10 body 101 0x0099A5 true false clothScrap @none 0 #INVALID 0
+t0fanaticarmor 120 15 0 15 body 105 0x0099A5 true false leatherScrap @none 0 #INVALID 0
+t0patienthelmet 40 10 0 0 head 100 0x0099A5 true false clothScrap @none 0 #INVALID 0
+t0fanatichelmet 50 10 0 0 head 107 0x0099A5 true false clothScrap @none 0 #INVALID 0
+t0patientarm 50 30 0 5 arm 103 0x0099A5 true false clothScrap @none 0 #INVALID 0
+t0garrisonhull 100 0 0 0 body none 0 true false metalScrap @none 0 #INVALID 0
+/ ***finalized player armors
+/ note that no armor should have a durability lower than its true health
+/ IE 30 for body, 15 for head
+/ as for organic, leather and cloth should count as organic too (for body/head armor)
+/ **starter gear (all t0)
+boot 30 13 0 0 leg 9 0x322011 true true fleshScrap @bootDesc 20 #Boot 25
+glove 50 15 0 0 arm 8 0x322011 true true fleshScrap @gloveDesc 10 #Glove 25
+clothes 50 13 0 0 body 6 0x322011 true true clothScrap @clothesDesc 20 #Clothes 25
+niceclothes 50 13 0 0 body 111 0x2F590F true true clothScrap @niceClothesDesc 20 #Nice#Clothes 100
+nicehat 20 10 0 0 head 110 0x2F590F true true clothScrap @niceHatDesc 5 #Nice#Hat 50
+rags 50 13 0 0 body 113 0x4C3830 true true clothScrap @ragsDesc 20 #Rags 5
+/ **heavy mech (main line)
+/ *t1
+shieldleg 76 7 0 5 leg 42 0x777777 false false metalScrap @shieldDesc 60 #Shield#Leg 180
+shieldarm 38 40 0 10 arm 41 0x777777 false false metalScrap @shieldDesc 60 #Shield#Arm 180
+/ *t2
+casedleg 85 7 0 5 leg 4 0x777777 false false metalScrap @casedDesc 60 #Cased#Leg 215
+casedarm 42 40 0 10 arm 3 0x777777 false false metalScrap @casedDesc 60 #Cased#Arm 215
+/ *t3
+alloyleg 90 7 0 5 leg 4 0x6F6F87 false false metalScrap @alloyDesc 55 #Alloy#Leg 260
+alloyarm 46 40 0 10 arm 3 0x6F6F87 false false metalScrap @alloyDesc 55 #Alloy#Arm 260
+/ *t4
+assistleg 90 7 15 7 leg 96 0x977777 false false metalScrap @assistDesc 60 #Strength-Assist#Leg 310
+assistarm 45 40 0 15 arm 95 0x977777 false false metalScrap @assistDesc 60 #Strength-Assist#Arm 310
+/ *t5
+slopedleg 100 10 0 5 leg 14 0x7F8291 false false metalScrap @slopedDesc 60 #Sloped-Armor#Leg 360
+slopedarm 50 45 0 10 arm 13 0x7F8291 false false metalScrap @slopedDesc 60 #Sloped-Armor#Arm 360
+/ *t6
+mastercraftleg 112 7 0 5 leg 14 0xAAAAAA false false metalScrap @mastercraftDesc 60 #Mastercraft#Mech#Leg 400
+mastercraftarm 56 40 0 10 arm 13 0xAAAAAA false false metalScrap @mastercraftDesc 60 #Mastercraft#Mech#Arm 400
+/ **light mech (misc line)
+/ *t0
+crudeleg 35 10 0 0 leg 14 0x777777 false false metalScrap @crudeDesc 40 #Crude#Leg 125
+crudearm 60 13 0 0 arm 13 0x777777 false false metalScrap @crudeDesc 40 #Crude#Arm 125
+/ **light flesh (main line)
+/ *t1
+synthleg 38 15 20 0 leg 4 0xF6E3D9 false true fleshScrap @synthDesc 40 #Synth#Leg 165
+syntharm 65 20 20 0 arm 3 0xF6E3D9 false true fleshScrap @synthDesc 40 #Synth#Arm 165
+/ *t2
+nerveleg 42 16 20 0 leg 4 0xE6E9B9 false true fleshScrap @nerveDesc 40 #Nerve#Leg 200
+nervearm 70 22 20 0 arm 3 0xE6E9B9 false true fleshScrap @nerveDesc 40 #Nerve#Arm 200
+/ *t3
+performanceleg 45 15 35 0 leg 4 0xFFDAD9 false true fleshScrap @performanceDesc 40 #Performance#Leg 240
+performancearm 75 20 30 3 arm 3 0xFFDAD9 false true fleshScrap @performanceDesc 40 #Performance#Arm 240
+/ *t4
+newtypeLeg 50 15 20 0 leg 99 0xD6E3D9 false true fleshScrap @newtypeDesc 40 #Newtype#Leg 280
+newtypeArm 85 20 20 0 arm 98 0xD6E3D9 false true fleshScrap @newtypeDesc 40 #Newtype#Arm 280
+/ *t5
+densityLeg 55 15 20 0 leg 14 0xDBD1CB false true fleshScrap @denseDesc 45 #Dense#Synthflesh#Leg 320
+densityArm 90 20 20 0 arm 13 0xDBD1CB false true fleshScrap @denseDesc 45 #Dense#Synthflesh#Arm 320
+/ *t6
+reflexleg 55 17 20 0 leg 4 0xE6F9B9 false true fleshScrap @reflexDesc 40 #Nerve#Leg 360
+reflexarm 92 23 20 0 arm 3 0xE6F9B9 false true fleshScrap @reflexDesc 40 #Nerve#Arm 360
+/ **heavy flesh (misc line)
+/ *t2
+fortifiedleg 80 7 20 0 leg 49 0xFFFFFF false true fleshScrap @fortifiedDesc 60 #Fortified#Leg 220
+fortifiedarm 45 35 20 0 arm 48 0xFFFFFF false true fleshScrap @fortifiedDesc 60 #Foritifed#Arm 220
+/ **light armor
+/ *t1
+leatherarmor 52 20 20 0 body 43 0x422011 true true leatherScrap @leatherBodyDesc 40 #Leather#Armor 300
+leatherheadband 28 10 0 0 head 40 0x422011 true true leatherScrap @leatherHeadDesc 20 #Leather#Headband 100
+/ *t2
+mesharmor 60 20 20 0 body 50 0x777777 true false metalScrap @meshBodyDesc 40 #Mesh#Armor 350
+meshskullcap 30 10 0 0 head 52 0x777777 true false metalScrap @meshHeadDesc 20 #Mesh#Skullcap 120
+/ *t3
+asharmor 65 20 20 0 body 43 0x2F2011 true true leatherScrap @ashBodyDesc 40 #Ash#Leather#Armor 380
+ashheadband 33 10 0 0 head 40 0x2F2011 true true leatherScrap @ashHeadDesc 20 #Ash#Leather#Headband 130
+/ *t4
+vectorarmor 70 20 20 0 body 93 0x666677 true false metalScrap @vectorBodyDesc 40 #Vector#Plate#Armor 420
+vectorhelmet 35 10 0 0 head 97 0x666677 true false leatherScrap @vectorHeadDesc 20 #Vector#Headband 150
+/ *t5
+velocityarmor 75 20 40 0 body 123 0x875E70 true true leatherScrap @velocityBodyDesc 40 #Velocity#Armor 460
+velocityheadband 38 10 30 0 head 40 0x875E70 true true leatherScrap @velocityHeadDesc 20 #Velocity#Headband 170
+/ **heavy armor
+/ *t1
+flakvest 100 3 0 5 body 6 0x1D221C true false clothScrap @flakBodyDesc 50 #Flak#Vest 330
+flakhelmet 40 8 0 0 head 5 0x1D221C true false metalScrap @flakHeadDesc 25 #Flak#Helmet 110
+/ *t2
+platearmor 120 0 0 5 body 45 0x777777 true false metalScrap @plateBodyDesc 60 #Plate#Armor 360
+platehelmet 50 6 0 0 head 47 0x777777 true false metalScrap @plateHeadDesc 30 #Plate#Helmet 120
+/ *t3
+alloyarmor 130 0 0 5 body 6 0x6F6F87 true false metalScrap @alloyBodyDesc 55 #Alloy#Plate#Armor 390
+alloyhelmet 55 6 0 0 head 5 0x6F6F87 true false metalScrap @alloyHeadDesc 25 #Alloy#Plate#Helmet 130
+/ *t4
+compositearmor 140 3 0 5 body 91 0x667766 true false metalScrap @compositeBodyDesc 60 #Composite#Body#Armor 420
+compositehelmet 60 6 0 0 head 90 0x667766 true false metalScrap @compositeHeadDesc 30 #Composite#Armor#Helmet 140
+/ *t5
+bluearmor 155 2 0 5 body 121 0x7777A8 true false metalScrap @blueBodyDesc 60 #Blueshine#Plate 450
+bluehelmet 62 6 0 0 head 120 0x7777A8 true false metalScrap @blueHeadDesc 30 #Blueshine#Helm 150
+/
+/
+WEAPON:
+/ name damage range burstSize slow hands table skill sprite color description weight displayName value
+/ weapons cannot be more than 2handed, at the moment
+/ special case: unarmed attack must be 0
+fist 6 1 2 false 1 basicCrippleTable s_unarmed none 0 @none 0 #INVALID 0
+/ *t0
+knife 7 1 2 false 1 basicDamageTable s_blade 16 0x999999 @knifeDesc 30 #Knife 80
+wrench 15 1 1 false 1 basicCrippleTable s_blunt 17 0x999999 @wrenchDesc 50 #Wrench 80
+shellgun 15 4 1 false 1 basicDamageTable s_manual 15 0x999999 @shellgunDesc 40 #Shellgun 100
+hypotheticalt0automatic 8 6 4 false 2 basicCrippleTable s_automatic 0 0x999999 @none 80 #INVALID 200
+hypotheticalt0beamgun 20 12 1 true 2 fastDamageTable s_beam 2 0x999999 @none 70 #INVALID 250
+hypotheticalt0rocketlauncher 38 8 1 true 2 explosionTable s_rocket 7 0xB080A8 @rocketLauncherDesc 60 #INVALID 300
+hypotheticalt0disruptor 9 5 5 true 2 explosionTable s_disruptor 12 0x789978 @disruptorDesc 100 #INVALID 400
+/ *t1
+combatknife 8 1 2 false 1 basicDamageTable s_blade 55 0x99AA99 @combatKnifeDesc 30 #Combat#Knife 88
+baton 17 1 1 false 1 basicCrippleTable s_blunt 18 0x333333 @batonDesc 45 #Baton 88
+stinger 17 4 1 false 1 basicDamageTable s_manual 15 0x889999 @stingerDesc 40 #Stinger 110
+juicer 9 6 4 false 2 basicCrippleTable s_automatic 0 0x999999 @juicerDesc 80 #Juicer#Automatic 220
+zeus 22 12 1 true 2 fastDamageTable s_beam 2 0xA0A088 @zeusDesc 65 #Zeus 275
+strongheart1 42 8 1 true 2 explosionTable s_rocket 7 0xA080A8 @rocketLauncherDesc 60 #Strongheart#Mk#I 330
+disruptorAlpha 10 5 5 true 2 explosionTable s_disruptor 12 0x789978 @disruptorDesc 100 #Disruptor#Alpha 440
+/ *t2
+sword 17 1 1 false 1 basicDamageTable s_blade 56 0xAAAAAA @swordDesc 40 #Sword 96
+mace 18 1 1 false 1 basicCrippleTable s_blunt 57 0xAAAAAA @maceDesc 55 #Mace 96
+sixshot 18 4 1 false 1 basicDamageTable s_manual 19 0x999999 @sixshotDesc 40 #Six-Shot 120
+falcon 13 5 3 false 2 basicCrippleTable s_automatic 1 0x99A0A0 @falconDesc 80 #Falcon#Automatic 240
+lancet 24 12 1 true 2 fastDamageTable s_beam 3 0x999999 @lancetDesc 70 #Lancet 300
+/ *t3
+toothSword 19 1 1 false 1 basicDamageTable s_blade 85 0x999999 @toothSwordDesc 30 #Tooth#Sword 104
+hammer 20 1 1 false 1 basicCrippleTable s_blunt 87 0x999999 @hammerDesc 50 #Hand#Hammer 104
+hotshot 20 4 1 false 1 basicDamageTable s_manual 15 0xAF9090 @hotshotDesc 40 #Hot-Shot 130
+scorpion 10 6 4 false 2 basicCrippleTable s_automatic 0 0x888888 @scorpionDesc 85 #Scorpion#Automatic 260
+sterilizer 26 12 1 true 2 fastDamageTable s_beam 4 0x999393 @sterilizerDesc 70 #Sterilizer 325
+strongheart2 50 8 1 true 2 explosionTable s_rocket 7 0xA980A8 @rocketLauncherDesc 60 #Strongheart#Mk#II 390
+disruptorBeta 12 5 5 true 2 explosionTable s_disruptor 12 0x789F78 @disruptorDesc 100 #Disruptor#Beta 520
+/ *t4
+ripper 21 1 1 false 1 basicDamageTable s_blade 58 0x909999 @ripperDesc 30 #Ripper#Blade 112
+warhammer 42 1 1 false 2 basicCrippleTable s_blunt 5 0x999999 @warhammerDesc 50 #Warhammer 220
+longshot 21 6 1 false 1 basicDamageTable s_manual 73 0x999999 @longshotDesc 40 #Long-Shot 140
+grizzly 11 6 4 false 2 basicCrippleTable s_automatic 9 0x99705E @grizzlyDesc 80 #Grizzly#Automatic 280
+suppressor 28 12 1 true 2 fastDamageTable s_beam 6 0x809980 @suppressorDesc 70 #Suppressor 350
+/ *t5
+chainSword 23 1 1 false 1 basicDamageTable s_blade 86 0x999090 @chainSwordDesc 40 #Chain#Sword 120
+autohammer 45 1 1 false 2 basicCrippleTable s_blunt 8 0x909099 @autohammerDesc 60 #Auto-Hammer 240
+super 23 4 1 false 1 basicDamageTable s_manual 15 0xBFBFC9 @superDesc 40 #S-5#Super 155
+camel 16 6 3 false 2 basicCrippleTable s_automatic 10 0x8C7E4D @camelDesc 80 #Camel-Pattern#Automatic 300
+assassin 17 10 2 true 2 fastDamageTable s_beam 11 0x656565 @assassinDesc 70 #Assassin#System 370
+strongheart3 58 8 1 true 2 explosionTable s_rocket 7 0xB080A8 @rocketLauncherDesc 60 #Strongheart#Mk#III 450
+disruptorGamma 14 5 5 true 2 explosionTable s_disruptor 12 0x78A978 @disruptorDesc 100 #Disruptor#Gamma 600
+/ *t6
+polar 12 7 4 false 2 basicCrippleTable s_automatic 9 0xB2ACA9 @polarDesc 80 #Polar#Automatic 320
+/
+/
+RECIPIETYPE:
+/ name
+craftsWeapon
+craftsArmor
+craftsStackable
+/
+/
+RECIPIE:
+/ name creates createsType skill* skill*num (1-2) exp ingredient* ingredient*num (1-3) requiredStation
+/ mech recipies
+r_* crudeleg craftsArmor s_mechcraft 0 none 0 3 metalScrap 4 mechPart 1 none 0 tef_mech
+r_* crudearm craftsArmor s_mechcraft 0 none 0 3 metalScrap 4 mechPart 1 none 0 tef_mech
+r_* shieldleg craftsArmor s_mechcraft 0 none 0 4 metalScrap 6 mechPart 1 none 0 tef_mech
+r_* shieldarm craftsArmor s_mechcraft 0 none 0 4 metalScrap 6 mechPart 1 none 0 tef_mech
+r_* casedleg craftsArmor s_mechcraft 1 none 0 6 metalScrap 7 mechPart 2 none 0 tef_mech
+r_* casedarm craftsArmor s_mechcraft 1 none 0 6 metalScrap 7 mechPart 2 none 0 tef_mech
+r_* alloyleg craftsArmor s_mechcraft 2 none 0 8 metalScrap 8 mechPart 2 gem 1 tef_mech
+r_* alloyarm craftsArmor s_mechcraft 2 none 0 8 metalScrap 8 mechPart 2 gem 1 tef_mech
+r_* assistleg craftsArmor s_mechcraft 3 none 0 10 metalScrap 8 mechPart 4 none 0 tef_mech
+r_* assistarm craftsArmor s_mechcraft 3 none 0 10 metalScrap 8 mechPart 4 none 0 tef_mech
+r_* slopedleg craftsArmor s_mechcraft 4 none 0 12 metalScrap 12 mechPart 2 none 0 tef_mech
+r_* slopedarm craftsArmor s_mechcraft 4 none 0 12 metalScrap 12 mechPart 2 none 0 tef_mech
+r_* mastercraftleg craftsArmor s_mechcraft 5 none 0 14 metalScrap 14 mechPart 3 none 0 tef_mech
+r_* mastercraftarm craftsArmor s_mechcraft 5 none 0 14 metalScrap 14 mechPart 3 none 0 tef_mech
+/ flesh recipies
+r_* synthleg craftsArmor s_fleshcraft 0 none 0 4 fleshScrap 6 growthSolution 1 none 0 tef_flesh
+r_* syntharm craftsArmor s_fleshcraft 0 none 0 4 fleshScrap 6 growthSolution 1 none 0 tef_flesh
+r_* nerveleg craftsArmor s_fleshcraft 1 none 0 6 fleshScrap 6 growthSolution 3 none 0 tef_flesh
+r_* nervearm craftsArmor s_fleshcraft 1 none 0 6 fleshScrap 6 growthSolution 3 none 0 tef_flesh
+r_* performanceleg craftsArmor s_fleshcraft 2 none 0 8 fleshScrap 8 growthSolution 2 none 0 tef_flesh
+r_* performancearm craftsArmor s_fleshcraft 2 none 0 8 fleshScrap 8 growthSolution 2 none 0 tef_flesh
+r_* newtypeLeg craftsArmor s_fleshcraft 3 none 0 10 fleshScrap 10 growthSolution 2 none 0 tef_flesh
+r_* newtypeArm craftsArmor s_fleshcraft 3 none 0 10 fleshScrap 10 growthSolution 2 none 0 tef_flesh
+r_* densityLeg craftsArmor s_fleshcraft 4 none 0 12 fleshScrap 13 growthSolution 2 none 0 tef_flesh
+r_* densityArm craftsArmor s_fleshcraft 4 none 0 12 fleshScrap 13 growthSolution 2 none 0 tef_flesh
+r_* reflexleg craftsArmor s_fleshcraft 5 none 0 14 fleshScrap 12 growthSolution 4 none 0 tef_flesh
+r_* reflexarm craftsArmor s_fleshcraft 5 none 0 14 fleshScrap 12 growthSolution 4 none 0 tef_flesh
+r_* fortifiedleg craftsArmor s_fleshcraft 1 s_armorcraft 1 6 fleshScrap 7 metalScrap 4 growthSolution 1 tef_flesh
+r_* fortifiedarm craftsArmor s_fleshcraft 1 s_armorcraft 1 6 fleshScrap 7 metalScrap 4 growthSolution 1 tef_flesh
+/ heavy armor recipies (helmet is usually half EXP, half materials)
+r_* flakvest craftsArmor s_armorcraft 0 none 0 8 clothScrap 12 metalScrap 5 none 0 tef_armor
+r_* flakhelmet craftsArmor s_armorcraft 0 none 0 4 clothScrap 6 metalScrap 2 none 0 tef_armor
+r_* platearmor craftsArmor s_armorcraft 1 none 0 12 metalScrap 15 none 0 none 0 tef_armor
+r_* platehelmet craftsArmor s_armorcraft 1 none 0 6 metalScrap 8 none 0 none 0 tef_armor
+r_* alloyarmor craftsArmor s_armorcraft 2 none 0 16 metalScrap 20 gem 2 none 0 tef_armor
+r_* alloyhelmet craftsArmor s_armorcraft 2 none 0 8 metalScrap 10 gem 1 none 0 tef_armor
+r_* compositearmor craftsArmor s_armorcraft 3 none 0 20 metalScrap 20 clothScrap 5 leatherScrap 2 tef_armor
+r_* compositehelmet craftsArmor s_armorcraft 3 none 0 10 metalScrap 10 clothScrap 2 none 0 tef_armor
+r_* bluearmor craftsArmor s_armorcraft 4 none 0 24 metalScrap 25 gem 2 leatherScrap 5 tef_armor
+r_* bluehelmet craftsArmor s_armorcraft 4 none 0 12 metalScrap 10 gem 1 leatherScrap 5 tef_armor
+/ light armor (helmet is usually half EXP, half materials)
+r_* leatherarmor craftsArmor s_armorcraft 0 none 0 8 leatherScrap 12 none 0 none 0 tef_armor
+r_* leatherheadband craftsArmor s_armorcraft 0 none 0 3 leatherScrap 5 none 0 none 0 tef_armor
+r_* mesharmor craftsArmor s_armorcraft 1 none 0 12 metalScrap 12 leatherScrap 4 none 0 tef_armor
+r_* meshskullcap craftsArmor s_armorcraft 1 none 0 6 metalScrap 5 leatherScrap 2 none 0 tef_armor
+r_* asharmor craftsArmor s_armorcraft 2 none 0 16 leatherScrap 18 battery 1 none 0 tef_armor
+r_* ashheadband craftsArmor s_armorcraft 2 none 0 8 leatherScrap 6 battery 1 none 0 tef_armor
+r_* vectorarmor craftsArmor s_armorcraft 3 none 0 20 metalScrap 18 leatherScrap 4 none 0 tef_armor
+r_* vectorhelmet craftsArmor s_armorcraft 3 none 0 10 metalScrap 6 leatherScrap 4 none 0 tef_armor
+r_* velocityarmor craftsArmor s_armorcraft 4 none 0 24 leatherScrap 22 growthSolution 1 painkiller 1 tef_armor
+r_* velocityheadband craftsArmor s_armorcraft 4 none 0 12 leatherScrap 10 growthSolution 1 painkiller 1 tef_armor
+/ misc crafted items
+r_* synthMeat craftsStackable s_fleshcraft 1 none 0 0 fleshScrap 1 none 0 none 0 tef_flesh
+r_* caveSandwich craftsStackable s_fleshcraft 0 none 0 0 synthMeat 1 caveFruit 1 bread 1 none
+r_* caveSalad craftsStackable s_fleshcraft 0 none 0 0 caveFruit 1 mushroom 2 caveFruitNectar 1 none
+/
+/
+AUGMENTTYPE:
+/ name humanAug bonds
+eyeAug true true
+shoulderAug true true
+hipAug true true
+accAug true false
+monsterAug false true
+/
+/
+AUGMENT:
+/ name spriteNumber overPart color type description accuracyBonus dodgeBonus blockBonus strengthBonus soakBonus speedBonus xray sonar displayName value
+/ eye augments
+targetEye none none 0x00FF00 eyeAug @targetEyeDesc 15 10 10 10 10 0 false false #Target-Assist#Eye#Implant 150
+tacticalEye none none 0x0000FF eyeAug @tacticalEyeDesc 10 13 13 10 10 0 false false #Tactical#Sensor#Eye#Implant 150
+heatEye none none 0xFF0000 eyeAug @heatEyeDesc 8 10 10 10 10 0 true false #Heat-Vision#Eye#Implant 180
+/ shoulder augments
+titanShoulder 71 body 0x9F9A9F shoulderAug @titanShoulderDesc 10 10 10 15 10 0 false false #Titan#Shoulder#Implant 170
+juggernautShoulder 71 body 0x909090 shoulderAug @juggernautShoulderDesc 10 10 10 10 15 0 false false #Juggernaut#Shoulder#Implant 170
+achillesShoulder 71 body 0x999999 shoulderAug @achillesShoulderDesc 10 10 15 10 10 0 false false #Achilles#Shoulder#Implant 170
+/ hip augments
+flexiHip 72 body 0x999999 hipAug @flexiHipDesc 10 15 10 10 10 0 false false #Flexi-Hip#Hip#Implant 180
+stabilityHip 72 body 0x909090 hipAug @stabilityHipDesc 15 8 10 10 10 0 false false #Stability#Hip#Implant 180
+sprinterHip 72 body 0x9F9A9F hipAug @sprinterHipDesc 10 10 10 10 10 50 false false #Sprinter#Hip#Implant 200
+/ accessory augments
+glasses 70 head 0xCC9900 accAug @glassesDesc 12 10 10 10 10 0 false false #Corrective#Glasses 50
+fCGlasses 108 head 0xCC9922 accAug @fCGlassesDesc 13 10 9 10 10 0 false false #Fleshcrafter#Glasses 60
+sonarGlasses 70 head 0xCCAA00 accAug @sonarGlassesDesc 12 10 9 10 10 0 false true #Sonar#HUD#Glasses 120
+heatGlasses 70 head 0xFF9900 accAug @heatGlassesDesc 12 10 9 10 10 0 true false #Heat#Spectrum#Glasses 120
+/ invisible augs for non-humans, to give enemies some internal variation
+toughClumsyAug none none 0 monsterAug @none 5 10 10 10 15 0 false false #INVALID 0
+strongFragileAug none none 0 monsterAug @none 10 10 10 15 5 0 false false #INVALID 0
+nimbleWeakAug none none 0 monsterAug @none 10 15 15 5 10 0 false false #INVALID 0
+skilledSlowAug none none 0 monsterAug @none 15 5 5 10 10 0 false false #INVALID 0
+speedyAug none none 0 monsterAug @none 10 10 10 10 10 100 false false #INVALID 0
+/
+/
+CRIME:
+/ name fullname description item* item*Number
+cr_smuggler #Drug#Smuggler @smugglerCrimeDesc hypo 5 painkiller 3
+cr_politicalD #Political#Dissident @politicalCrimeDesc book 1 largebullet 8
+cr_religiousD #Religious#Dissident @religiousCrimeDesc holySymbol 1 medicalKit 1
+cr_thief #Robber @thiefCrimeDesc coin 50
+cr_voluntary #Voluntary @voluntaryCrimeDesc medicalKit 1 rations 2 waterBottle 1
+cr_murderer #Murderer @murdererCrimeDesc fleshScrap 3 coin 5
+cr_terrorist #Terrorist @terroristCrimeDesc criminalBombTrap 3
+cr_looter #Looter @looterCrimeDesc repairKit 2 largebullet 3
+cr_homosexual #Homosexual @homosexualCrimeDesc clothScrap 2 leatherScrap 4
+/
+/
+OCCUPATION:
+/ name class augment skillBonus description
+Military soldierClass none s_automatic @soldierJobDesc
+Trade traderClass none s_trade @traderJobDesc
+Labor laborerClass titanShoulder s_unarmed @laborJobDesc
+Begging streetRatClass none s_dodge @beggarJobDesc
+Mechcrafting mechCrafterClass none s_mechcraft @mechCrafterJobDesc
+Fleshcrafting fleshCrafterClass fCGlasses s_fleshcraft @fleshCrafterJobDesc
+/
+/
+EQUIPTRACK:
+/ name variations t*item* (1-variation) (0-20? I guess)
+/ variations 0 is a special armor-only property which makes it pick the t0 item and auto-upgrade it (for nameless enemy armor)
+/ remember to increase MAXEQUIPTIER if you add another tier of equips!
+/ weapon tracks
+t_blade 1 knife combatknife sword toothSword ripper chainSword
+t_blunt 1 wrench baton mace hammer warhammer autohammer
+t_manual 1 shellgun stinger sixshot hotshot longshot super
+t_automatic 1 juicer juicer falcon scorpion grizzly camel polar
+t_beam 1 zeus zeus lancet sterilizer suppressor assassin
+t_rocket 1 strongheart1 strongheart1 strongheart2 strongheart2 strongheart3 strongheart3
+t_disruptor 1 disruptorAlpha disruptorAlpha disruptorBeta disruptorBeta disruptorGamma disruptorGamma
+/ human tracks
+t_hlightleg 2 boot crudeleg synthleg synthleg nerveleg nerveleg performanceleg performanceleg newtypeLeg newtypeLeg densityLeg densityLeg reflexleg reflexleg
+t_hheavyleg 2 boot crudeleg shieldleg shieldleg casedleg fortifiedleg alloyleg alloyleg assistleg assistleg slopedleg slopedleg mastercraftleg mastercraftleg
+t_hlightarm 2 glove crudearm syntharm syntharm nervearm nervearm performancearm performancearm newtypeArm newtypeArm densityArm densityArm reflexarm reflexarm
+t_hheavyarm 2 glove crudearm shieldarm shieldarm casedarm fortifiedarm alloyarm alloyarm assistarm assistarm slopedarm slopedarm mastercraftarm mastercraftarm
+t_hlightarmor 1 clothes leatherarmor mesharmor asharmor vectorarmor velocityarmor
+t_hheavyarmor 1 clothes flakvest platearmor alloyarmor compositearmor bluearmor
+t_hlighthelmet 1 noheadarmor leatherheadband meshskullcap ashheadband vectorhelmet velocityheadband
+t_hheavyhelmet 1 noheadarmor flakhelmet platehelmet alloyhelmet compositehelmet bluehelmet
+/ starter tracks
+t_naturalleg 1 boot boot boot
+t_naturalarm 1 glove glove glove
+t_flakarmor 1 flakvest flakvest flakvest
+t_flakhead 1 flakhelmet flakhelmet flakhelmet
+t_casedleg 1 casedleg casedleg casedleg
+t_casedarm 1 casedarm casedarm casedarm
+t_syntharm 1 syntharm syntharm syntharm
+t_synthleg 1 synthleg synthleg synthleg
+t_niceclothes 1 niceclothes niceclothes niceclothes
+t_nicehat 1 nicehat nicehat nicehat
+t_rags 1 rags rags rags
+/ NPC tracks
+t_nicehatNPC 0 nicehat
+t_niceclothesNPC 0 niceclothes
+/ grappler tracks
+t_grapplerleg 0 t0grapplerleg
+t_grapplerarm 0 t0grapplerarm
+t_grapplerhide 0 t0grapplerhide
+t_grapplerhelm 0 t0grapplerhelm
+/ equestrian tracks
+t_equestrianleg 0 t0equestrianleg
+t_equestrianarm 0 t0equestrianarm
+t_equestrianarmor 0 t0equestrianarmor
+t_equestrianhelm 0 t0equestrianhelm
+/ geist tracks
+t_geistarmor 0 t0geistarmor
+t_geisthelm 0 t0geisthelm
+/ gunboat tracks
+t_gunboatarmor 0 t0gunboatarmor
+t_gunboatelitearmor 0 t0gunboatelitearmor
+t_gunboatarm 0 t0gunboatarm
+t_gunboatelitearm 0 t0gunboatelitearm
+t_gunboatleg 0 t0gunboatleg
+/ slither tracks
+t_slitherhide 0 t0slitherhide
+t_slitherhead 0 t0slitherhead
+/ soldier tracks
+t_soldierarmor 0 t0soldierarmor
+t_soldierhelmet 0 t0soldierhelmet
+/ exterminator tracks
+t_exterminatorhead 0 t0exterminatorhead
+t_exterminatorhide 0 t0exterminatorhide
+t_exterminatorleg 0 t0exterminatorleg
+/ syndicate tracks
+t_syndicatearmor 0 t0syndicatearmor
+t_syndicatehelmet 0 t0syndicatehelmet
+/ roamer tracks
+t_roamerleg 0 t0roamerleg
+t_roamerbody 0 t0roamerbody
+t_roamerhead 0 t0roamerhead
+/ wolke tracks
+t_wolkeleg 0 t0wolkeleg
+t_wolkebody 0 t0wolkebody
+t_wolkehead 0 t0wolkehead
+/ patient tracks
+t_patientarmor 0 t0patientarmor
+t_fanaticarmor 0 t0fanaticarmor
+t_patienthelmet 0 t0patienthelmet
+t_fanatichelmet 0 t0fanatichelmet
+t_patientarm 0 t0patientarm
+/ garrison tracks
+t_garrisonhull 0 t0garrisonhull
+/
+/
+LAYEDTRAP:
+/ name sprite color baseDamage damageTable stun
+teethTrapLayed 0 0x5B3318 40 legOnlyTable true
+militaryBombTrapLayed 1 0x185924 70 explosionTable false
+criminalBombTrapLayed 1 0x444444 60 explosionTable false
+/
+/
+MERCHANTTYPE:
+/ name merchantNPC guardNPC minGuards maxGuards furnitureList minFurniture maxFurniture chest*
+generalStore genericTrader traderGuard 2 3 residentialFurnitureList merchantCrate ammoBox armorLocker fridge moneyBox
+/
+/
+TRAPLIST:
+/ name t*
+testTrapList teethTrapLayed militaryBombTrapLayed criminalBombTrapLayed
+criminalTraps teethTrapLayed teethTrapLayed criminalBombTrapLayed
+militaryTraps teethTrapLayed militaryBombTrapLayed militaryBombTrapLayed
+illegalTraps teethTrapLayed
+/
+/
+MISCITEMLIST:
+/ name item* amount*Start amount*End
+/ player misc items; these should all be complete constants
+pSoldierMiscItems largebullet 5 5
+pTraderMiscItems gem 4 4
+pStreetRatMiscItems coin 1 1
+pLaborerMiscItems metalScrap 3 3
+pMechCrafterMiscItems repairKit 2 2
+pFleshCrafterMiscItems medicalKit 2 2
+/ creature loot tables
+equestrianItems medicalKit 1 2 rations 2 3 waterBottle 2 3 smallbullet 7 11 fleshScrap 1 2 gem 1 2 militaryBombTrap 1 2 leatherScrap 2 3
+gunboatItems metalScrap 2 3 mechPart 1 2 battery 2 3 repairKit 1 2
+soldierItems medicalKit 1 2 rations 2 3 waterBottle 2 3 growthSolution 1 2 fleshScrap 2 3 militaryBombTrap 1 1 leatherScrap 4 5
+criminalItems medicalKit 1 1 repairKit 1 1 bread 2 3 growthSolution 1 1 mechPart 1 1 largebullet 2 3 coin 5 8 coin 10 15 gem 1 4 teethTrap 1 1 book 1 2 hypo 1 2
+syndicateItems medicalKit 2 3 repairKit 2 3 rations 2 3 waterBottle 2 3 growthSolution 1 2 leatherScrap 3 5 teethTrap 1 1 criminalBombTrap 1 2
+grapplerItems medicalKit 1 2 leatherScrap 2 3 repairKit 1 2 bread 3 4 growthSolution 1 2 coin 5 10 teethTrap 2 3
+geistItems growthSolution 1 2 fleshScrap 2 3 leatherScrap 2 3 medicalKit 1 1
+slitherItems growthSolution 1 1 leatherScrap 1 2 leatherScrap 2 3
+exterminatorItems growthSolution 1 1 leatherScrap 1 2 fleshScrap 1 2 oldBread 1 1
+roamerItems growthSolution 3 4 fleshScrap 2 3 leatherScrap 2 3
+patientItems medicalKit 1 2 exMedicalKit 1 1 painkiller 2 4 painkiller 1 2 hypo 1 3 fleshScrap 2 3 book 1 2
+fanaticItems painkiller 3 5 painkiller 1 2 coin 4 10 teethTrap 1 2 medicalKit 1 2 disruptorCell 2 4
+traderItems medicalKit 2 3 coin 20 50 gem 3 4 caveSandwich 2 3 soda 2 3
+traderGuardItems medicalKit 1 2 coin 5 10 coin 5 10 rations 2 3 waterBottle 2 3
+garrisonItems metalScrap 2 3 battery 2 3 mechPart 1 2
+/ chest loot tables
+ammoBoxItems largebullet 3 5 battery 1 3 largebullet 2 4 largebullet 3 5 smallbullet 8 15 smallbullet 7 13 smallbullet 7 11
+constructionCrateItems metalScrap 5 10 metalScrap 4 7 brick 10 15 brick 10 20 brick 10 15 leatherScrap 4 7
+bookshelfItems book 5 10 book 7 8 book 2 3 book 4 5 book 5 6 datatape 4 5 coin 1 6
+blackMarketCrateItems largebullet 3 6 smallbullet 8 12 battery 1 2 medicalKit 1 2 coin 10 12 gem 1 3 teethTrap 1 2 criminalBombTrap 1 2 mechPart 2 5 growthSolution 2 5 hypo 3 6 hypo 2 4 rocket 1 2 painkiller 1 5 holySymbol 1 1
+medicalCabinetItems medicalKit 1 2 medicalKit 1 2 exMedicalKit 1 1 fleshScrap 2 3 growthSolution 1 1 leatherScrap 1 2 painkiller 2 3
+mechanicBoxItems repairKit 1 2 repairKit 1 2 metalScrap 2 4 mechPart 1 1 clothScrap 1 2 teethTrap 1 1
+filingCabinetItems coin 10 12 coin 5 9 clothScrap 1 2 waterBottle 2 3 battery 1 1 book 2 5 datatape 2 6 datatape 4 4 leatherScrap 2 3
+militaryLockerItems smallbullet 8 15 smallbullet 8 15 smallbullet 7 12 largebullet 4 6 battery 1 3 medicalKit 1 2 repairKit 1 2 rations 2 3 waterBottle 2 3 militaryBombTrap 2 3
+armorLockerItems repairKit 1 2 leatherScrap 2 3 metalScrap 2 3 clothScrap 2 3
+lootedMilitaryLockerItems smallbullet 0 5 smallbullet 0 1 smallbullet 0 1 largebullet 0 2 largebullet 0 1 largebullet 0 1 battery 0 1 medicalKit 0 1 repairKit 0 1 rations 0 2 waterBottle 0 2
+caveFlowerItems caveFruit 1 2 caveFruitNectar 1 2
+mushroomPatchItems mushroom 1 1 mushroom 1 2
+fridgeItems caveFruit 3 4 mushroom 5 7 bread 2 6 waterBottle 4 5 synthMeat 2 6 soda 2 5 caveSandwich 1 2 caveSalad 2 3
+minecartItems gem 1 5 rock 5 10 rock 1 3 rock 2 4 rock 2 4 rock 3 5 rock 5 10 rock 5 10 metalScrap 4 8 metalScrap 1 3
+fleshTankItems driedBlood 2 5 driedBlood 3 7 gristle 5 10 gristle 2 3 gristle 1 5 gristle 1 5 fleshScrap 3 7 fleshScrap 2 5 fleshScrap 1 10 leatherScrap 1 8 growthSolution 1 2 growthSolution 2 3
+emptyFleshTankItems driedBlood 1 3 driedBlood 2 3 driedBlood 1 3 gristle 1 1 growthSolution 1 1
+fleshRackItems driedBlood 1 3 fleshScrap 1 4 leatherScrap 2 4 leatherScrap 2 4 leatherScrap 1 5 leatherScrap 2 4 leatherScrap 1 4 leatherScrap 2 4
+merchantCrateItems bread 5 10 bread 5 10 waterBottle 4 6 waterBottle 4 6 medicalKit 2 3 repairKit 2 3 largebullet 5 8 book 5 10 coin 6 12 coin 4 8 gem 2 6 soda 4 6
+moneyBoxItems coin 10 20 coin 10 25 coin 5 10 gem 2 3
+/
+/
+CCLASS:
+/ name morph headtrack bodytrack armtrack legtrack weapontrack mainskill* (1-2) secondaryskill* (1-2) miscItems minDifficulty
+/ player classes
+soldierClass humanmorph t_flakhead t_flakarmor t_naturalarm t_naturalleg t_manual none none none none pSoldierMiscItems 0
+traderClass humanmorph t_nicehat t_niceclothes t_naturalarm t_naturalleg t_manual none none none none pTraderMiscItems 0
+laborerClass humanmorph t_hheavyhelmet t_rags t_casedarm t_naturalleg none none none none none pLaborerMiscItems 0
+streetRatClass humanmorph t_hlighthelmet t_rags t_naturalarm t_naturalleg t_blade none none none none pStreetRatMiscItems 0
+mechCrafterClass humanmorph t_hheavyhelmet t_hheavyarmor t_casedarm t_casedleg t_blunt none none none none pMechCrafterMiscItems 0
+fleshCrafterClass humanmorph t_hlighthelmet t_niceclothes t_syntharm t_synthleg t_blade none none none none pFleshCrafterMiscItems 0
+/ NPC classes
+genericTrader humanmorph t_nicehatNPC t_niceclothesNPC t_syntharm t_synthleg t_manual s_dodge s_block s_manual none traderItems 0
+traderGuard humanmorph t_hheavyhelmet t_hheavyarmor t_hheavyarm t_hheavyleg t_automatic s_automatic s_block none none traderGuardItems 0
+/ unaffiliated enemies
+garrison garrisonmorph none t_garrisonhull none none none s_specialattack none none none garrisonItems 0
+/ ex-military
+soldierBrawler soldiermorph t_soldierhelmet t_soldierarmor t_hheavyarm t_hheavyleg none s_unarmed s_specialattack s_block none soldierItems 0
+soldierGunner soldiermorph t_soldierhelmet t_soldierarmor t_hheavyarm t_hheavyleg t_automatic s_automatic s_specialattack s_dodge none soldierItems 5
+gunboatGuardian gunboatmorph none t_gunboatarmor t_gunboatarm t_gunboatleg t_blunt s_specialattack s_block s_blunt none gunboatItems 10
+gunboatArtillerist gunboatmorph none t_gunboatarmor t_gunboatarm t_gunboatleg none s_specialattack s_unarmed s_dodge none gunboatItems 10
+gunboatWeaponPlatform gunboatmorph none t_gunboatarmor t_gunboatarm t_gunboatleg t_manual s_specialattack s_manual none none gunboatItems 15
+equestrianRider equestrianmorph t_equestrianhelm t_equestrianarmor t_equestrianarm t_equestrianleg t_manual s_specialattack s_dodge s_manual none equestrianItems 5
+equestrianSoldier equestrianmorph t_equestrianhelm t_equestrianarmor t_equestrianarm t_equestrianleg t_automatic s_automatic s_dodge s_specialattack none equestrianItems 8
+equestrianKnight equestrianmorph t_equestrianhelm t_equestrianarmor t_hheavyarm t_hheavyleg t_blunt s_blunt s_specialattack s_block s_dodge equestrianItems 8
+/ ex-military bosses
+soldierHeavy soldiermorph t_soldierhelmet t_soldierarmor t_hheavyarm t_hheavyleg t_rocket s_rocket s_specialattack none none soldierItems 5
+gunboatEliteDemolisher gunboatelitemorph none t_gunboatelitearmor t_gunboatelitearm t_gunboatleg t_rocket none none s_rocket s_dodge gunboatItems 35
+gunboatEliteSniper gunboatelitemorph none t_gunboatelitearmor t_gunboatelitearm t_gunboatleg t_beam none none s_beam s_dodge gunboatItems 20
+gunboatEliteGunner gunboatelitemorph none t_gunboatelitearmor t_gunboatelitearm t_gunboatleg t_automatic s_automatic none none none gunboatItems 0
+/ illegal creations
+exterminator exterminatormorph t_exterminatorhead t_exterminatorhide none t_exterminatorleg none s_specialattack s_dodge none none exterminatorItems 0
+slither slithermorph t_slitherhead t_slitherhide none none none s_specialattack none s_dodge none slitherItems 0
+geistServant geistmorph t_geisthelm t_geistarmor t_hlightarm t_hlightleg t_manual s_manual none s_dodge none geistItems 5
+geistLaborer geistmorph t_geisthelm t_geistarmor t_hheavyarm t_hheavyleg t_blunt s_blunt none s_block none geistItems 0
+geistSlayer geistmorph t_geisthelm t_geistarmor t_hlightarm t_hheavyleg t_beam s_beam none none none geistItems 10
+patientWarrior patientmorph t_patienthelmet t_patientarmor t_patientarm t_hheavyleg t_blade s_blade s_block none none patientItems 5
+patientSoldier patientmorph t_patienthelmet t_patientarmor t_patientarm t_hheavyleg t_automatic s_automatic s_block none none patientItems 10
+/ illegal bosses
+roamer roamermorph t_roamerhead t_roamerbody none t_roamerleg none s_specialattack s_dodge none none roamerItems 0
+wolke wolkemorph t_wolkehead t_wolkebody none t_wolkeleg none s_specialattack none none none roamerItems 5
+fanatic fanaticmorph t_fanatichelmet t_fanaticarmor t_patientarm t_hheavyleg t_disruptor s_disruptor none none none fanaticItems 10
+/ criminals
+criminalKiller humanmorph t_hlighthelmet t_hlightarmor t_hheavyarm t_hlightleg t_blade s_blade none s_block s_dodge criminalItems 0
+criminalMuscle humanmorph t_hheavyhelmet t_hheavyarmor t_hheavyarm t_hheavyleg t_blunt s_blunt s_block none none criminalItems 0
+criminalThug humanmorph t_hheavyhelmet t_hheavyarmor t_hlightarm t_hheavyleg t_automatic s_automatic none s_dodge none criminalItems 3
+grapplerAssassin grapplermorph t_grapplerhelm t_grapplerhide t_grapplerarm t_grapplerleg t_blade s_blade s_block none none grapplerItems 5
+grapplerDesperado grapplermorph t_grapplerhelm t_grapplerhide t_grapplerarm t_grapplerleg t_manual s_manual none s_block s_dodge grapplerItems 10
+/ criminal bosses
+syndicateGrunt humanmorph t_syndicatehelmet t_syndicatearmor t_hheavyarm t_hheavyleg t_automatic s_automatic s_block s_unarmed none syndicateItems 0
+syndicateSniper humanmorph t_syndicatehelmet t_syndicatearmor t_hlightarm t_hlightleg t_beam s_unarmed s_dodge s_beam none syndicateItems 15
+syndicateCommando humanmorph t_syndicatehelmet t_syndicatearmor t_hlightarm t_hheavyleg t_rocket s_rocket s_unarmed s_dodge s_block syndicateItems 30
+/
+/
+ENCOUNTERTABLE:
+/ name bossTable encounter*
+/ encounter lists
+rogueMilitaryEncounters rogueMilitaryBosses gunboatGuardian gunboatArtillerist gunboatWeaponPlatform equestrianRider equestrianSoldier equestrianKnight soldierBrawler soldierGunner
+criminalEncounters criminalBosses criminalKiller criminalMuscle criminalThug grapplerAssassin grapplerDesperado
+illegalEncounters illegalBosses geistServant geistLaborer geistSlayer slither exterminator patientWarrior patientSoldier
+/ boss lists
+rogueMilitaryBosses none gunboatEliteGunner gunboatEliteSniper gunboatEliteDemolisher soldierHeavy
+criminalBosses none syndicateGrunt syndicateSniper syndicateCommando
+illegalBosses none roamer wolke fanatic
+/
+/
+FACTION:
+/ name trapList numTraps encountersPerMap encounterTable*
+friendly testTrapList 0 20
+rogueMilitary militaryTraps 10 12 rogueMilitaryEncounters
+criminal criminalTraps 20 10 criminalEncounters
+illegal illegalTraps 15 16 illegalEncounters
+/
+/
+EQUIPLOOT:
+/ name track* track*type
+ammoBoxEquip t_manual craftsWeapon t_automatic craftsWeapon t_beam craftsWeapon
+militaryLockerEquip t_manual craftsWeapon t_automatic craftsWeapon t_beam craftsWeapon t_rocket craftsWeapon t_hheavyarmor craftsArmor t_hheavyhelmet craftsArmor t_hlightarmor craftsArmor t_hlighthelmet craftsArmor
+blackMarketCrateEquip t_manual craftsWeapon t_blade craftsWeapon t_blunt craftsWeapon t_automatic craftsWeapon t_beam craftsWeapon t_hheavyleg craftsArmor t_hheavyarm craftsArmor t_hlightleg craftsArmor t_hlightarm craftsArmor
+armorLockerEquip t_hheavyarmor craftsArmor t_hheavyhelmet craftsArmor t_hheavyarm craftsArmor t_hheavyleg craftsArmor t_hlightarmor craftsArmor t_hlighthelmet craftsArmor t_hlightarm craftsArmor t_hlightleg craftsArmor
+merchantCrateEquips t_manual craftsWeapon t_blade craftsWeapon t_blunt craftsWeapon t_hheavyarmor craftsArmor t_hheavyhelmet craftsArmor t_hlightarmor craftsArmor t_hlighthelmet craftsArmor
+/
+/
+CHEST:
+/ name sprite color miscItems equipLoot vanishWhenEmpty spriteIncreaseWhenAccessed augmentChance
+droppedItem 0 0xFFFFFF none none true false 0
+/ corpses
+humanCorpse 1 0xFFBBBB none none false false 0
+geistCorpse 4 0xBBBBFF none none false false 0
+gunboatCorpse 9 0xFFFFFF none none false false 0
+equestrianCorpse 1 0xBB9999 none none false false 0
+grapplerCorpse 10 0xD0BBBB none none false false 0
+slitherCorpse 11 0xBBBBD0 none none false false 0
+exterminatorCorpse 12 0xFFBBBB none none false false 0
+wolkeCorpse 13 0xBBBBD0 none none false false 0
+/ chests
+ammoBox 2 0x80A980 ammoBoxItems ammoBoxEquip false true 0
+moneyBox 2 0x80800A moneyBoxItems none false true 0
+blackMarketCrate 15 0x454545 blackMarketCrateItems blackMarketCrateEquip false true 15
+merchantCrate 15 0x834F37 merchantCrateItems merchantCrateEquips false true 20
+bookshelf 17 0x834F37 bookshelfItems none false true 0
+constructionCrate 15 0x835F77 constructionCrateItems none false true 0
+medicalCabinet 5 0xF9F0F0 medicalCabinetItems none false true 25
+mechanicBox 2 0x6F6060 mechanicBoxItems none false true 0
+filingCabinet 5 0x909090 filingCabinetItems none false true 5
+armorLocker 7 0xA3A8A3 armorLockerItems armorLockerEquip false true 5
+militaryLocker 7 0x80A980 militaryLockerItems militaryLockerEquip false true 30
+lootedMilitaryLocker 8 0x80A980 lootedMilitaryLockerItems none false false 0
+caveFlower 19 0xFFAACC caveFlowerItems none true false 0
+fridge 7 0xD0D0DF fridgeItems none false true 0
+minecart 20 0x7F6E68 minecartItems none false true 0
+mushroomPatch 22 0x825E68 mushroomPatchItems none true false 0
+fleshTank 23 0x7C403E fleshTankItems none false true 0
+emptyFleshTank 24 0x7C403E emptyFleshTankItems none false false 0
+fleshRack 25 0x7C403E fleshRackItems none false true 0
+/
+/
+PITEFFECT:
+/ name frame color xSpeed ySpeed
+pe_water 0 0x2B2B7F 12 5
+pe_blood 0 0x723B47 8 0 
+/
+/
+MAPTYPE:
+/ name metaTileList furnitureList numRooms numChests numFurniture pitEffect monsterPercentage defender defenderNumber baseSize chest*
+residential residentialTileList residentialFurnitureList 20 15 50 pe_water 110 none 0 120 bookshelf bookshelf bookshelf medicalCabinet medicalCabinet filingCabinet filingCabinet fridge fridge ammoBox blackMarketCrate constructionCrate
+robberCave caveTileList robberCaveFurnitureList 2 25 10 pe_water 90 none 0 80 blackMarketCrate blackMarketCrate ammoBox caveFlower caveFlower caveFlower mushroomPatch armorLocker
+militaryBase baseTileList baseFurniture 8 35 25 none 75 garrison 4 70 lootedMilitaryLocker lootedMilitaryLocker lootedMilitaryLocker militaryLocker militaryLocker militaryLocker ammoBox medicalCabinet mechanicBox armorLocker
+oldMine mineTileList robberCaveFurnitureList 0 15 10 none 100 none 0 100 minecart minecart minecart medicalCabinet ammoBox mushroomPatch
+fleshWorks fleshWorksTileList fleshWorksFurnitureList 5 25 10 pe_blood 85 none 0 90 fleshTank fleshTank fleshTank fleshRack fleshRack fleshRack emptyFleshTank medicalCabinet caveFlower mushroomPatch armorLocker
+waterWorks waterWorksTileList robberCaveFurnitureList 1 25 15 pe_water 85 none 0 100 ammoBox ammoBox constructionCrate constructionCrate merchantCrate merchantCrate armorLocker blackMarketCrate caveFlower mushroomPatch
+/
+/
+/ END DATA
+FILLERDATA:
+/
